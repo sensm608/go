@@ -2,22 +2,28 @@ package main
 
 import "fmt"
 
-type subscriber struct{
-	name string
-	rate int
-	active bool
+type part struct {
+	desc  string
+	count int
 }
 
-func main(){
-	var s1 subscriber
+func showInfo(p part) {
+	fmt.Println("desc: ", p.desc)
+	fmt.Println("count: ", p.count)
+}
 
-	fmt.Printf("%#v\n",s1)
+func minimumOrder(desc string) part {
+	var p part
+	p.desc = desc
+	p.count = 1000
+	return p
+}
 
-	s1.name = "kim"
-	s1.rate = 5000
-	s1.active = false
-
-	fmt.Printf("%s\n", s1.name)
-	fmt.Println(s1.rate)
-	fmt.Println(s1.active)
+func main() {
+	p := minimumOrder("Hex bolts")
+	fmt.Println(p.desc,p.count)
+	//var bolts part
+	//bolts.desc = "Hex bolts"
+	//bolts.count = 100
+	//showInfo(bolts)
 }
